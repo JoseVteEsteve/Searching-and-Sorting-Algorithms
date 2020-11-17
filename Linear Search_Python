@@ -1,0 +1,12 @@
+def search(arr, x): 
+
+	for i in range(len(arr)): 
+		if arr[i] == x:
+			return i
+		else:
+			return "Error. The value is not found"
+
+#example
+array =[1,3,5,7,8,-1,2,6]
+search_value = 4
+print("Position of",search_value,":",search(array,4))
