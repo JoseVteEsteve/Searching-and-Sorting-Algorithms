@@ -1,0 +1,14 @@
+n ← MaxIndex - 1  //n is used to know the number of iterations, so if the value contains MaxIndex elements, there will be MaxIndex - 1 comparisons
+REPEAT 
+    NoMoreSwaps ← True  //at the very beginning, NoMoreSwaps is initialised as True, but it will change throghout the program to False
+    FOR j ← 1 TO n  //for n iterations ...
+        IF MyList[j] > MyList[j + 1] // ... if the previous element is greater then the next element (or vice versa), a swap will be produced ...
+          THEN
+            Temp ← MyList[j]   // ... the previous item is stored in a temporary variable called Temp ...
+            MyList[j] ← MyList[j + 1]  // ... the swap is produced ...
+            MyList[j + 1] ← Temp  // ... the value for Temp (which was the previous element) is stored in the next element
+            NoMoreSwaps ← False  //NoMoreSwaps is changed to False because there are more elements to compare
+        ENDIF
+    ENDFOR
+    n ← n - 1  //n is decremented by 1
+UNTIL NoMoreSwaps = True  //this is the condition to stop the loop (when there are no more swaps, the algorithm stops)
