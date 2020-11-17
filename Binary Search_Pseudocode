@@ -1,0 +1,39 @@
+Found ←  False
+SearchFailed ← False
+ 
+//set boundaries for each area
+First ← 1
+Last ← MaxItems
+ 
+WHILE Found = False AND SearchFailed=False DO
+	//find middle of current search area
+	Middle ← (First + Last) DIV 2
+
+  IF List[Middle] = SearchItem  //if the item on the middle of the list is SearchItem...
+	  THEN
+    	Found ← True //...the item has been found in the middle position of the array
+  	ELSE
+    	
+      //no search area left
+    	IF First = Last  //if First points to the same position of the array than Last (there is only one element on the list and it is not SearchItem)
+      	THEN
+        	SearchFailed ← True  //the search has failed because First and Last has the same value (is the only condition to have True in SearchFailed variable)
+      	
+        ELSE //if not, SearchItem is on the list but it is not found until now ...
+        	IF List[Middle] > SearchItem    //SearchItem must be in the first half since SearchItem is less than the item in the middle of the list
+          	THEN
+            	Last ← Middle – 1 //Last item is now the previous element of Middle position whilst First remains with the same value
+       				//move upper boundary
+          	ELSE   //must be in the second half since SearchItem is greater than the item in the middle of the list
+          	  First ← Middle + 1 //Last item stays equal but First item is now the item after Middle position
+            	//move lower boundary
+        	ENDIF
+    	ENDIF
+ENDWHILE
+ 
+IF Found = True
+  THEN
+	  OUTPUT Middle //output the position where item was found
+  ELSE
+	  OUTPUT “Item not present in the array”
+ENDIF
