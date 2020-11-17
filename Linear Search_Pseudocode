@@ -1,0 +1,18 @@
+MaxIndex ← N //a number N of elements of the array
+INPUT SearchValue
+Found ← False
+Index ← 0
+REPEAT
+    Index ← Index + 1   //Index points to the next position in the array
+    IF MyList[Index] = SearchValue  //if the item in Index position on the array is equal to SearchValue...
+      THEN
+        Found ← True  //Found is True because SearchValue has been found
+    ENDIF
+UNTIL Found = True OR Index >= MaxIndex  //until the search has been successful or the end of the array has been reached
+
+IF Found = True 
+  THEN
+    OUTPUT “Value found at location”, Index
+  ELSE
+    OUTPUT “Value not found”
+ENDIF
