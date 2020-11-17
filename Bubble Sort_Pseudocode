@@ -1,0 +1,13 @@
+//n is the number of elements to compare in each pass 
+n ← MaxIndex - 1 //since there are MaxIndex elements, there will be MaxIndex - 1 comparisons
+FOR i ← 1 TO n  //outer loop, used to count the number of passes trough the array
+    FOR j ← 1 TO n  //inner loop, used to count the number of comparisons between numbers for each pass
+        IF MyList[j] > MyList[j + 1]   //if the j element is greater than the next element, there will be a swap...
+          THEN
+            Temp ← MyList[j]   // ... a temporary variable (Temp) is used to store the value of the previous element (element j)
+            MyList[j] ← MyList[j + 1]  // ... the swap is produced so the next element becomes the previous 
+            MyList[j + 1] ← Temp  // ... the previous element occupies now the next position so the swap is completed
+        ENDIF
+    ENDFOR
+    n ← n - 1 //this means that the next time round the inner loop, we don’t look at the values already in the correct positions
+ENDFOR
