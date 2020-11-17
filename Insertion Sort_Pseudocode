@@ -1,0 +1,10 @@
+//at the very beginning, position 1 refers to the sorted part of the array, whilst position 2 to NumberOfItems represents the unsorted part
+FOR Pointer ← 2 TO NumberOfItems  //for every position of item in the unsorted part
+    ItemToBeInserted ← List[Pointer]  //the item to be transported to the sorted part is the second item on the list (and eventually, position 3, 4, ... etcetera)
+    CurrentItem ← Pointer - 1  //the current item represents the pointer to the rightmost item in the sorted part
+    WHILE (List[CurrentItem] > ItemToBeInserted) AND CurrentItem > 0 DO  //this means that while the element on the sorted part was greater than the element on the unsorted part and the pointer was positive 
+        List[CurrentItem + 1] ← List[CurrentItem] // ... a swap is produced so the sorted part becomes + 1 and there is a swap between CurrentItem and CurrentItem + 1 positions
+        CurrentItem ← CurrentItem - 1 //... now, CurrentItem is 
+    ENDWHILE
+    List[CurrentItem + 1] ← ItemToBeInserted
+ENDFOR
